@@ -5,8 +5,8 @@ def  imageTag = "gcr.io/${project}/${appName}:${env.BRANCH_NAME}.${env.BUILD_NUM
 
 pipeline {
  agent {
-    master {
-      label 'sample-app'
+   
+      label 'master'
       defaultContainer 'jnlp'
       yaml """
 apiVersion: v1
@@ -34,7 +34,7 @@ spec:
     - cat
     tty: true
 """
-}
+
   }
   stages {
     stage('Test') {
